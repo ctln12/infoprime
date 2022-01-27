@@ -1,0 +1,41 @@
+<div class="max-w-md mx-auto px-12 py-9 bg-emerald-50 rounded text-emerald-900 shadow shadow-emerald-100">
+  <h1 class="text-2xl font-semibold mb-4">Sign up</h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field mb-4 flex flex-col justify-between">
+      <%= f.label :first_name, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
+      <%= f.email_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: "Albert", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+    </div>
+
+    <div class="field mb-4 flex flex-col justify-between">
+      <%= f.label :last_name, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
+      <%= f.email_field :last_name, autocomplete: "last-name", placeholder: "Einstein", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+    </div>
+
+    <div class="field mb-4 flex flex-col justify-between">
+      <%= f.label :email, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: "albert.einstein@mail.com", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+    </div>
+
+    <div class="field mb-4 flex flex-col justify-between">
+      <%= f.label :password, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "********", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+      <% if @minimum_password_length %>
+      <em class="text-sm text-slate-600 font-light"><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field mb-4 flex flex-col justify-between">
+      <%= f.label :password_confirmation, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "mb-3 py-2 px-3 bg-emerald-500 hover:bg-emerald-400 text-white rounded transition duration-300" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
