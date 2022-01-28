@@ -1,13 +1,13 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class: "p-1 rounded text-emerald-600 hover:text-emerald-500 transition duration-300 focus:outline-none focus:ring focus:ring-emerald-200" %><br />
+  <%= link_to "Log in", new_session_path(resource_name), class: "p-1 rounded text-teal-600 hover:text-teal-500 transition duration-300 focus:outline-none focus:ring focus:ring-teal-200" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "mb-5 p-1 rounded text-emerald-600 hover:text-emerald-500 transition duration-300 focus:outline-none focus:ring focus:ring-emerald-200" %><br />
+  <%= link_to "Sign up", new_registration_path(resource_name), class: "mb-5 p-1 rounded text-teal-600 hover:text-teal-500 transition duration-300 focus:outline-none focus:ring focus:ring-teal-200" %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "p-1 rounded text-emerald-600 hover:text-emerald-500 transition duration-300 focus:outline-none focus:ring focus:ring-emerald-200" %><br />
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "p-1 rounded text-teal-600 hover:text-teal-500 transition duration-300 focus:outline-none focus:ring focus:ring-teal-200" %><br />
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

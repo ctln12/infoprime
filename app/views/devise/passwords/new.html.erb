@@ -1,16 +1,18 @@
-<h2>Forgot your password?</h2>
+<div class="max-w-md mx-auto mt-8 px-12 py-9 bg-teal-50 rounded text-teal-900 shadow shadow-teal-100">
+  <h1 class="text-2xl font-semibold mb-4">Forgot your password?</h1>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field mb-4 flex flex-col justify-between">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "albert.einstein@mail.com", class: "mt-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions", class: "w-full mb-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
