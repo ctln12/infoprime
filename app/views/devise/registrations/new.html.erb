@@ -6,12 +6,12 @@
 
     <div class="field mb-4 flex flex-col justify-between">
       <%= f.label :first_name, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
-      <%= f.email_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: "Albert", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: "Albert", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
     </div>
 
     <div class="field mb-4 flex flex-col justify-between">
       <%= f.label :last_name, class: "after:content-['*'] after:ml-0.5 after:text-emerald-500" %>
-      <%= f.email_field :last_name, autocomplete: "last-name", placeholder: "Einstein", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
+      <%= f.text_field :last_name, autocomplete: "last-name", placeholder: "Einstein", class: "mt-1 rounded-md border-emerald-200 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 placeholder:font-light" %>
     </div>
 
     <div class="field mb-4 flex flex-col justify-between">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "mb-3 py-2 px-3 bg-emerald-500 hover:bg-emerald-400 text-white rounded transition duration-300" %>
+      <%= f.submit "Sign up", class: "mb-3 py-2 px-3 bg-emerald-500 hover:bg-emerald-400 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-emerald-200" %>
     </div>
   <% end %>
 

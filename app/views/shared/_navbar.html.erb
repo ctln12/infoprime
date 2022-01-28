@@ -2,14 +2,15 @@
   <div class='max-w-7xl mx-auto px-4'>
     <div class='flex justify-between'>
       <div>
-        <%= link_to 'infoprime', root_path, class: 'flex items-center py-5 px-2 font-bold hover:text-gray-800' %>
+        <%= link_to 'infoprime', root_path, class: 'flex items-center py-5 px-2 font-bold hover:text-gray-800 rounded focus:outline-none focus:ring focus:ring-emerald-200' %>
       </div>
       <div class='flex items-center space-x-3'>
         <% if user_signed_in? %>
-          <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'py-5 px-3 text-emerald-600 hover:text-emerald-500 transition duration-300' %>
+          <p class='py-5 px-3'><%= current_user.email %></p>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'py-2 px-3 text-emerald-600 hover:text-emerald-500 rounded transition duration-300 focus:outline-none focus:ring focus:ring-emerald-200' %>
         <% else %>
-          <%= link_to 'Login', new_user_session_path, class: 'py-5 px-3 text-emerald-600 hover:text-emerald-500 transition duration-300' %>
-          <%= link_to 'Sign up', new_user_registration_path, class: 'py-2 px-3 bg-emerald-500 hover:bg-emerald-400 text-white rounded transition duration-300' %>
+          <%= link_to 'Log in', new_user_session_path, class: 'py-2 px-3 text-emerald-600 hover:text-emerald-500 rounded transition duration-300 focus:outline-none focus:ring focus:ring-emerald-200' %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'py-2 px-3 bg-emerald-500 hover:bg-emerald-400 text-white rounded transition duration-300 shadow-sm focus:outline-none focus:ring focus:ring-emerald-200' %>
         <% end %>
       </div>
     </div>
