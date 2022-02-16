@@ -1,26 +1,37 @@
 <div class="max-w-md mx-auto mt-8 px-12 py-9 bg-teal-50 rounded text-teal-900 shadow shadow-teal-100">
   <h1 class="text-2xl font-semibold mb-4">Log in</h1>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field mb-4 flex flex-col justify-between">
-      <%= f.label :email, class: "after:content-['*'] after:ml-0.5 after:text-teal-500" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "albert.einstein@mail.com", class: "mt-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40" %>
-    </div>
-
-    <div class="field mb-4 flex flex-col justify-between">
-      <%= f.label :password, class: "after:content-['*'] after:ml-0.5 after:text-teal-500" %>
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: "********", class: "mt-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field mb-4 flex items-center">
-        <%= f.check_box :remember_me, class: "mr-2 border border-teal-200 rounded text-teal-400 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-50" %>
-        <%= f.label :remember_me %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <div class="field">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: {
+                      autocomplete: "email",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
       </div>
-    <% end %>
+      <div class="field">
+        <%= f.input :password,
+                    required: false,
+                    input_html: {
+                      autocomplete: "current-password",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="field mt-2">
+          <%= f.input :remember_me,
+                      as: :boolean,
+                      wrapper_html: { class: "flex flex-row-reverse items-center justify-end" },
+                      input_html: { class: "mr-2 border border-teal-200 rounded text-teal-400 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-50" } %>
+        </div>
+      <% end %>
+    </div>
 
-    <div class="actions">
-      <%= f.submit "Log in", class: "mb-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in", class: "my-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
     </div>
   <% end %>
 

@@ -1,16 +1,30 @@
 <div class="max-w-md mx-auto mt-8 px-12 py-9 bg-teal-50 rounded text-teal-900 shadow shadow-teal-100">
   <h1 class="text-2xl font-semibold mb-4">Forgot your password?</h1>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <% if f.error_notification %>
+      <div class="absolute bottom-4 right-4">
+        <div class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg" role="alert">
+          <%= f.error_notification %>
+          <span class="absolute inset-y-0 right-0 flex items-center mr-4">
+            <svg class="w-4 h-4 fill-current" role="button" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+          </span>
+        </div>
+      </div>
+    <% end %>
 
-    <div class="field mb-4 flex flex-col justify-between">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "albert.einstein@mail.com", class: "mt-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40" %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: {
+                    autocomplete: "email",
+                    class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                  } %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Send me reset password instructions", class: "w-full mb-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Send me reset password instructions", class: "w-full my-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
     </div>
   <% end %>
 
