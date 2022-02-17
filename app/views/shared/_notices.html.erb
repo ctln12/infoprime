@@ -1,0 +1,7 @@
+<% if notice %>
+  <%= render partial: "shared/flash", locals: { message: notice } %>
+<% end %>
+
+<% if alert %>
+  <%= render partial: "shared/flash", locals: { message: alert } %>
+<% end %>
