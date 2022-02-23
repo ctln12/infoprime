@@ -1,0 +1,18 @@
+<nav class='shadow-sm'>
+  <div class='max-w-7xl mx-auto px-4'>
+    <div class='flex justify-between'>
+      <div>
+        <%= link_to 'infoprime', root_path, class: 'flex items-center py-5 px-2 text-xl font-bold hover:text-gray-800 rounded focus:outline-none focus:ring focus:ring-gray-100' %>
+      </div>
+      <div class='flex items-center space-x-3'>
+        <% if user_signed_in? %>
+          <p class='py-5 px-3'><%= current_user.email %></p>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'py-2 px-3 text-teal-600 hover:text-teal-500 rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-200' %>
+        <% else %>
+          <%= link_to 'Log in', new_user_session_path, class: 'py-2 px-3 text-teal-600 hover:text-teal-500 rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-200' %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 shadow-sm focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

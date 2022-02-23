@@ -1,0 +1,25 @@
+<div class="max-w-md mx-auto mt-8 px-12 py-9 bg-teal-50 rounded text-teal-900 shadow shadow-teal-100">
+  <h1 class="text-2xl font-semibold mb-4">Forgot your password?</h1>
+
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <% if f.error_notification %>
+      <%= render partial: "shared/flash", locals: { message: f.error_notification } %>
+    <% end %>
+
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: {
+                    autocomplete: "email",
+                    class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                  } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Send me reset password instructions", class: "w-full my-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

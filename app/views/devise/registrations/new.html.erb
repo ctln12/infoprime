@@ -1,0 +1,61 @@
+<div class="max-w-md mx-auto mt-8 px-12 py-9 bg-teal-50 rounded text-teal-900 shadow shadow-teal-100">
+  <h1 class="text-2xl font-semibold mb-4">Sign up</h1>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <% if f.error_notification %>
+      <%= render partial: "shared/flash", locals: { message: f.error_notification } %>
+    <% end %>
+
+    <div class="form-inputs">
+      <div class="field">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: {
+                      autocomplete: "first-name",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
+      </div>
+      <div class="field">
+        <%= f.input :last_name,
+                    required: true,
+                    input_html: {
+                      autocomplete: "last-name",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
+      </div>
+      <div class="field">
+        <%= f.input :email,
+                    required: true,
+                    input_html: {
+                      autocomplete: "email",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
+      </div>
+      <div class="field">
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    hint_html: { class: "block text-sm text-slate-500" },
+                    input_html: {
+                      autocomplete: "new-password",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
+      </div>
+      <div class="field">
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: {
+                      autocomplete: "new-password",
+                      class: "w-full my-1 rounded-md border-teal-100 shadow-sm focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-40"
+                    } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "my-3 py-2 px-3 bg-teal-600 hover:bg-teal-500 text-white rounded transition duration-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
